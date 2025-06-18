@@ -1,4 +1,4 @@
-/* Default desktop layout */
+/* Desktop layout */
 .container {
   display: flex;
   flex-direction: row;
@@ -14,25 +14,47 @@
   flex: 1;
 }
 
-/* Mobile-only responsive layout */
-@media (max-width: 600px) {
+/* Tablet and smaller (≤900px) */
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
-    padding: 12px;
-    gap: 12px;
+    padding: 16px;
+    gap: 16px;
   }
-  .sidebar {
-    width: 100%;
-    margin-bottom: 12px;
-  }
+  .sidebar,
   .main-content {
     width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 16px 8px;
   }
+}
+
+/* Mobile phones (≤600px) */
+@media (max-width: 600px) {
   body {
     font-size: 1.1em;
+    margin: 0;
+    background: #f9f9f9;
+  }
+  .container {
+    padding: 8px;
+    gap: 8px;
+  }
+  .sidebar,
+  .main-content {
+    padding: 12px 4px;
+    margin-bottom: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  h1, h2, h3 {
+    font-size: 1.2em;
   }
   button, input, select {
     font-size: 1em;
-    padding: 12px;
+    padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
