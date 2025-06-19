@@ -78,4 +78,26 @@ const App: React.FC = () => {
   );
 };
 
+// Get all students
+async function getStudents() {
+  const res = await fetch('http://localhost:5000/students');
+  const data = await res.json();
+  console.log(data);
+}
+
+// Add a student
+async function addStudent(name: string) {
+  const res = await fetch('http://localhost:5000/students', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  console.log('Student added:', data);
+}
+
+// Usage
+getStudents();
+addStudent('Jane Doe');
+
 export default App;

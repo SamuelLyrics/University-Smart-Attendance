@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
-// Example: Get all students
+// Get all students
 app.get('/students', (req, res) => {
   db.query('SELECT * FROM students', (err, results) => {
     if (err) return res.status(500).json({ error: err });
@@ -33,7 +33,7 @@ app.get('/students', (req, res) => {
   });
 });
 
-// Example: Add a student
+// Add a student
 app.post('/students', (req, res) => {
   const { name } = req.body;
   db.query('INSERT INTO students (name) VALUES (?)', [name], (err, result) => {
@@ -46,3 +46,24 @@ const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// Client-side code (to be used in your frontend JavaScript)
+// Get all students
+fetch('http://localhost:5000/students')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data); // Use this data in your UI
+  })
+  .catch(err => console.error(err));
+
+// Add a student
+fetch('http://localhost:5000/students', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Jane Doe' })
+})
+  .then(res => res.json())
+  .then(data => {
+    console.log('Student added:', data);
+  })
+  .catch(err => console.error(err));
