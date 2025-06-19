@@ -87,5 +87,26 @@
   <main class="main-content">
     <!-- Your main content here -->
   </main>
+  <ul id="student-list"></ul>
+<script>
+fetch('http://localhost:5000/students')
+  .then(res => res.json())
+  .then(data => {
+    const list = document.getElementById('student-list');
+    data.forEach(student => {
+      const li = document.createElement('li');
+      li.textContent = student.name;
+      list.appendChild(li);
+    });
+  });
+
+fetch('http://localhost:5000/students', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Jane Doe' })
+})
+  .then(res => res.json())
+  .then(data => console.log('Added:', data));
+</script>
 </body>
 </html>

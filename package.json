@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
@@ -20,5 +23,18 @@
     "@types/react-dom": "^19.1.6",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
-  }
+  },
+  "description": "This contains everything you need to run your app locally.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelLyrics/University-Smart-Attendance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamuelLyrics/University-Smart-Attendance/issues"
+  },
+  "homepage": "https://github.com/SamuelLyrics/University-Smart-Attendance#readme"
 }
