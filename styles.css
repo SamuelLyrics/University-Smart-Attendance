@@ -106,4 +106,34 @@
   .mobile-header .menu:active + .mobile-drawer {
     display: flex;
   }
+  
+  button,
+  .btn,
+  input[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #0078d4 60%, #ffd600 100%);
+    color: #0a2342;
+    font-weight: bold;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: block;
+  }
+  button:active,
+  .btn:active,
+  input[type="submit"]:active {
+    background: linear-gradient(90deg, #005fa3 60%, #e6b800 100%);
+    color: #fff;
+  }
+  /* Add spacing between stacked buttons */
+  .btn + .btn,
+  button + button,
+  input[type="submit"] + button {
+    margin-top: 12px;
+  }
 }
