@@ -46,3 +46,9 @@ const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+const menuBtn = document.querySelector('.mobile-menu');
+const drawer = document.querySelector('.mobile-drawer');
+menuBtn.addEventListener('click', () => {
+  drawer.style.display = drawer.style.display === 'block' ? 'none' : 'block';
+});
