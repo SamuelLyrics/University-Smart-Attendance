@@ -79,30 +79,96 @@ button:active, .btn:active {
 
 /* Mobile phones (≤600px) */
 @media (max-width: 600px) {
-  html, body {
-    font-size: 18px;
+  body {
     margin: 0;
     background: #f4f6fa;
+    font-size: 18px;
   }
-  .container {
-    padding: 4vw;
-    gap: 6vw;
+  .mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0a2342;
+    color: #fff;
+    padding: 18px 16px;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .sidebar,
-  .main-content {
-    padding: 7vw 5vw;
-    margin-bottom: 5vw;
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85vw;
+    max-width: 340px;
+    height: 100vh;
     background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    border-radius: 14px;
-    transition: box-shadow 0.2s;
+    box-shadow: 2px 0 24px rgba(0,0,0,0.15);
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 200;
+    padding: 32px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: slideIn 0.3s;
   }
-  .sidebar {
-    border-left: 4px solid #0078d4;
-    margin-bottom: 6vw;
+  @keyframes slideIn {
+    from { transform: translateX(-100%);}
+    to { transform: translateX(0);}
   }
-  .main-content {
-    border-left: 4px solid #00b386;
+  .mobile-drawer .nav-list {
+    list-style: none;
+    padding: 0 0 0 0;
+    margin: 0;
+  }
+  .mobile-drawer .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 28px;
+    font-size: 1.08em;
+    color: #222;
+    border-radius: 12px;
+    margin: 0 12px 8px 12px;
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+  .mobile-drawer .nav-item.selected,
+  .mobile-drawer .nav-item:active {
+    background: #0a2342;
+    color: #fff;
+  }
+  .mobile-drawer .nav-item .icon {
+    margin-right: 14px;
+    font-size: 1.2em;
+  }
+  .mobile-drawer .logout-btn {
+    margin: 24px 16px 0 16px;
+    padding: 14px 0;
+    width: calc(100% - 32px);
+    background: #ffd600;
+    color: #0a2342;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.08em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .mobile-drawer .logout-btn .icon {
+    font-size: 1.2em;
+  }
+  .mobile-drawer .nav-item[disabled] {
+    color: #bbb;
+    cursor: not-allowed;
+    background: none;
   }
   h1, h2, h3 {
     font-size: 1.4em;

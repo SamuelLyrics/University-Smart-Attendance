@@ -42,5 +42,20 @@
 <body class="bg-university-light-gray font-sans">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+  <div class="mobile-header">
+    Central University Smart Attendance
+    <span class="menu">&#9776;</span>
+  </div>
+  <nav class="mobile-drawer">
+    <ul class="nav-list">
+      <li class="nav-item"><span class="icon">🏠</span>Home</li>
+      <li class="nav-item" disabled>Lecturer</li>
+      <li class="nav-item selected"><span class="icon">📝</span>Mark Attendance</li>
+      <li class="nav-item"><span class="icon">➕</span>Student Registration</li>
+      <li class="nav-item"><span class="icon">👥</span>Student List</li>
+      <li class="nav-item"><span class="icon">📊</span>Statistics</li>
+    </ul>
+    <button class="logout-btn"><span class="icon">🔓</span>Logout</button>
+  </nav>
 </body>
 </html>
