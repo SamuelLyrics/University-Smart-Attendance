@@ -1,4 +1,4 @@
-/* Desktop layout */
+/* Default desktop layout */
 .container {
   display: flex;
   flex-direction: row;
@@ -14,76 +14,96 @@
   flex: 1;
 }
 
-/* Tablet and smaller (≤900px) */
-@media (max-width: 900px) {
+/* Mobile-only responsive layout */
+@media (max-width: 600px) {
   .container {
     flex-direction: column;
-    padding: 16px;
-    gap: 16px;
+    padding: 12px;
+    gap: 12px;
   }
-  .sidebar,
+  .sidebar {
+    width: 100%;
+    margin-bottom: 12px;
+  }
   .main-content {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    padding: 20px 12px;
   }
-}
-
-/* Mobile phones (≤600px) */
-@media (max-width: 600px) {
-  html, body {
-    font-size: 18px;
-    margin: 0;
-    background: #f9f9f9;
+  body {
+    font-size: 1.1em;
   }
-  .container {
-    padding: 4vw;
-    gap: 6vw;
-  }
-  .sidebar,
-  .main-content {
-    padding: 6vw 4vw;
-    margin-bottom: 4vw;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    border-radius: 10px;
-  }
-  h1, h2, h3 {
-    font-size: 1.3em;
-    margin-top: 0;
-  }
-  p, label, input, button, select, textarea {
+  button, input, select {
     font-size: 1em;
-    line-height: 1.5;
+    padding: 12px;
   }
-  input, select, textarea {
-    width: 100%;
-    padding: 14px 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    background: #fafafa;
-    box-sizing: border-box;
+  
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #0078d4;
+    color: white;
+    font-size: 1.2em;
   }
-  button {
-    width: 100%;
-    padding: 16px;
-    font-size: 1em;
-    border: none;
-    border-radius: 6px;
-    background: #0078d4;
-    color: #fff;
-    margin-bottom: 12px;
+  
+  .menu {
+    font-size: 1.5em;
     cursor: pointer;
   }
-  button:active {
-    background: #005fa3;
+  
+  .mobile-drawer {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 250px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
   }
-  /* Increase spacing for touch targets */
-  label {
-    margin-bottom: 8px;
-    display: block;
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-item.disabled {
+    color: gray;
+    pointer-events: none;
+  }
+  
+  .icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+  }
+  
+  .logout-btn {
+    padding: 12px;
+    background-color: #d83b01;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .logout-btn .icon {
+    margin-right: 8px;
+  }
+  
+  /* Show mobile drawer when menu is clicked */
+  .mobile-header .menu:focus + .mobile-drawer,
+  .mobile-header .menu:active + .mobile-drawer {
+    display: flex;
   }
 }

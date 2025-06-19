@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Central University Smart Attendance</title>
+  <title>Responsive Layout Example</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,24 +38,54 @@
 }
 </script>
 <link rel="stylesheet" href="styles.css">
+<style>
+/* Responsive layout for mobile devices only (≤600px) */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 32px;
+}
+
+.sidebar {
+  width: 250px;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Mobile-only responsive layout */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .main-content {
+    width: 100%;
+  }
+  body {
+    font-size: 1.1em;
+  }
+  button, input, select {
+    font-size: 1em;
+    padding: 12px;
+  }
+}
+</style>
 </head>
 <body class="bg-university-light-gray font-sans">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
   <div class="mobile-header">
-    Central University Smart Attendance
-    <span class="menu">&#9776;</span>
-  </div>
-  <nav class="mobile-drawer">
-    <ul class="nav-list">
-      <li class="nav-item"><span class="icon">🏠</span>Home</li>
-      <li class="nav-item" disabled>Lecturer</li>
-      <li class="nav-item selected"><span class="icon">📝</span>Mark Attendance</li>
-      <li class="nav-item"><span class="icon">➕</span>Student Registration</li>
-      <li class="nav-item"><span class="icon">👥</span>Student List</li>
-      <li class="nav-item"><span class="icon">📊</span>Statistics</li>
-    </ul>
-    <button class="logout-btn"><span class="icon">🔓</span>Logout</button>
-  </nav>
+  
+  <main class="main-content">
+    <!-- Your main content here -->
+  </main>
 </body>
 </html>
